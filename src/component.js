@@ -1,1 +1,0 @@
-export let message = "Webpack is working";

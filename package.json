@@ -1,0 +1,26 @@
+{
+  "name": "To-Do-list",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">",
+  "main": "webpack.config.js",
+  "private": "true",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EddxSotz/To-Do-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EddxSotz/To-Do-list/issues"
+  },
+  "homepage": "https://github.com/EddxSotz/To-Do-list#readme",
+  "devDependencies": {
+    "webpack": "^5.78.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
