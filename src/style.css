@@ -1,3 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: rgb(151, 230, 230);
+  background-color: rgb(217, 217, 217);
+  font-family: sans-serif;
+}
+
+div {
+  background-color: white;
+  box-shadow: 5px 5px 2px #ccc;
+  width: 50%;
+  padding: 2rem;
+  margin-inline: auto;
+  margin-top: 20%;
+}
+
+h1 {
+  border-bottom: 2px solid #dbdbdb;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  border-bottom: 2px solid #dbdbdb;
+  margin-bottom: 1rem;
 }
