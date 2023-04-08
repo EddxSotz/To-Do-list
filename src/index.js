@@ -24,7 +24,6 @@ const tasks = [
           }
           taskListElement.appendChild(listItemElement);
         });
-      }
-
+  }
       // Render task list on page load
       renderTaskList();

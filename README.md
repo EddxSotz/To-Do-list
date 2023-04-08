@@ -1,7 +1,7 @@
 # Awesome-Books-ES6
 <div align="center">
   
-  <h3><b>Refactoring of the Awesome Books project with ES6 syntax</b></h3>
+  <h3><b>To Do List</b></h3>
 
 </div>
 
@@ -29,7 +29,7 @@
 # 📖 Awesome Books<a name="about-project"></a>
 
 
-Basic website that allows users to add/remove books from a list by using JavaScript-ES6 with classes, objects and modules.
+To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. 
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -42,8 +42,7 @@ Basic website that allows users to add/remove books from a list by using JavaScr
 
 ### Key Features <a name="key-features"></a>
 <ul>
-<li>Allows users to add/remove books from a list by using JavaScript objects and arrays.</li>
-<li>Data is preserved in the browser's memory by using local storage</li>
+<li>Basic structure to display a list of items dinamically </li>
 </ul>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -63,6 +62,7 @@ In order to run this project you need:
 <li><a href="https://www.npmjs.com/">NPM</a></li>
 <li><a href="https://nodejs.org/en/">Node</a></li>
 <li><a href="https://code.visualstudio.com/">VS Code</a></li>
+<li><a href="https://webpack.js.org/">Webpack</a></li>
 </ul>
 
 
@@ -71,8 +71,6 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 git clone 
-
-
 
 ### Install
 
