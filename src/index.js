@@ -18,11 +18,20 @@ const tasks = [
         // Create a new list item for each task
         tasks.forEach(task => {
           const listItemElement = document.createElement("li");
-          listItemElement.textContent = task.description;
+          const checkboxElement =document.createElement("input");
+          const listItemText = document.createElement("span");
+          checkboxElement.setAttribute('type', 'checkbox');
+          checkboxElement.setAttribute('style', 'margin-right: 1rem');
+
+          listItemText.textContent = task.description;
+
+          listItemElement.appendChild(checkboxElement);
+          listItemElement.appendChild(listItemText);                    
+          
           if (task.completed) {
             listItemElement.classList.add("completed");
           }
-          taskListElement.appendChild(listItemElement);
+          taskListElement.appendChild(listItemElement);          
         });
   }
       // Render task list on page load
