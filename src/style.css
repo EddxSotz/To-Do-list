@@ -15,12 +15,21 @@ div {
   width: 50%;
   padding: 2rem;
   margin-inline: auto;
-  margin-top: 20%;
+  margin-top: 10%;
+}
+
+#AddToList {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #dbdbdb;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 h1 {
   border-bottom: 2px solid #dbdbdb;
   margin-bottom: 1rem;
+  padding: 1rem;
 }
 
 ul {
@@ -29,5 +38,10 @@ ul {
 
 li {
   border-bottom: 2px solid #dbdbdb;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+}
+
+span {
+  margin-left: 1rem;
 }
