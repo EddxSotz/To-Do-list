@@ -4,7 +4,7 @@ const form = document.getElementById('input_form');
 const addItemInput = document.getElementById('AddToList');
 
 // Define the To-Do List array
-let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
 // Function to save the To-Do List in local storage
 function saveList() {
@@ -15,9 +15,9 @@ function saveList() {
 function addTask(description) {
   // Create a new task object with default values
   const newTask = {
-    description: description,
+    description,
     completed: false,
-    index: todoList.length
+    index: todoList.length,
   };
   // Add the new task to the array
   todoList.push(newTask);
@@ -47,7 +47,7 @@ function editTaskDescription(index, newDescription) {
 
 // Function to render the To-Do List on the web page
 function renderList() {
-  const listContainer = document.getElementById('list-container');  
+  const listContainer = document.getElementById('list-container');
   // Clear the list container
   listContainer.innerHTML = '';
   // Iterate over the To-Do List array and create an HTML list item for each task
@@ -70,7 +70,8 @@ function renderList() {
     const inputElement = document.createElement('input');
     inputElement.type = 'text';
     inputElement.className = 'edit_list_input';
-    
+
+    // Create delete button for deleting list element
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', () => {
@@ -78,6 +79,10 @@ function renderList() {
       renderList();
     });
 
+    // Create save button for changing list item description
+    const saveButton = document.createElement('button');
+    saveButton.textContent = 'Save';
+    saveButton.style.display = 'none';
 
     // Create input element when edit button is pressed
     const editButton = document.createElement('button');
@@ -90,21 +95,15 @@ function renderList() {
       inputElement.value = task.description;
       descriptionSpan.replaceWith(inputElement);
     });
-    
-
-    const saveButton = document.createElement('button');
-    saveButton.textContent = 'Save'; 
-    saveButton.style.display = 'none';
 
     saveButton.addEventListener('click', () => {
-    saveButton.style.display = 'none';
-    editButton.style.display = '';
-    editTaskDescription(task.index, inputElement.value);
-    task.description = inputElement.value;
-    inputElement.replaceWith(descriptionSpan);
-    renderList();
-  });
-
+      saveButton.style.display = 'none';
+      editButton.style.display = '';
+      editTaskDescription(task.index, inputElement.value);
+      task.description = inputElement.value;
+      inputElement.replaceWith(descriptionSpan);
+      renderList();
+    });
 
     listItem.appendChild(checkbox);
     listItem.appendChild(descriptionSpan);
