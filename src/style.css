@@ -80,3 +80,7 @@ button {
   position: absolute;
   right: 1rem;
 }
+
+#clear_completed {
+  margin-bottom: 2rem;
+}
