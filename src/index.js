@@ -53,23 +53,59 @@ function renderList() {
   // Iterate over the To-Do List array and create an HTML list item for each task
   todoList.forEach((task) => {
     const listItem = document.createElement('li');
+
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
-    checkbox.addEventListener('click', () => {
+    checkbox.addEventListener('change', () => {
       task.completed = checkbox.checked;
       saveList();
     });
+
+    const descriptionSpan = document.createElement('span');
+    descriptionSpan.textContent = task.description;
+    const inputElement = document.createElement('input');
+    inputElement.type = 'text';
+
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', () => {
       deleteTask(task.index);
       renderList();
     });
-    const descriptionSpan = document.createElement('span');
-    descriptionSpan.textContent = task.description;
+
+
+    // Create input element when edit button is pressed
+    const editButton = document.createElement('button');
+    editButton.textContent = 'Edit';
+
+    editButton.addEventListener('click', () => {
+      editButton.style.display = 'none';
+      saveButton.style.display = '';
+      inputElement.focus();
+      inputElement.value = task.description;
+      descriptionSpan.replaceWith(inputElement);
+    });
+    
+
+    const saveButton = document.createElement('button');
+    saveButton.textContent = 'Save'; 
+    saveButton.style.display = 'none';
+    
+    saveButton.addEventListener('click', () => {
+    saveButton.style.display = 'none';
+    editButton.style.display = '';
+    editTaskDescription(task.index, inputElement.value);
+    task.description = inputElement.value;
+    inputElement.replaceWith(descriptionSpan);
+    renderList();
+  });
+
+
     listItem.appendChild(checkbox);
     listItem.appendChild(descriptionSpan);
+    listItem.appendChild(editButton);
+    listItem.appendChild(saveButton);
     listItem.appendChild(deleteButton);
     listContainer.appendChild(listItem);
   });
