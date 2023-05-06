@@ -7,15 +7,18 @@
 body {
   background-color: rgb(217, 217, 217);
   font-family: sans-serif;
+  background-image: url('./paper_texture.jpg');
+  background-size: cover;
 }
 
-div {
+main {
   background-color: white;
   box-shadow: 5px 5px 2px #ccc;
+  border-radius: 1rem;
   width: 50%;
   padding: 2rem;
   margin-inline: auto;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 #AddToList {
@@ -28,8 +31,9 @@ div {
 
 h1 {
   border-bottom: 2px solid #dbdbdb;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   padding: 1rem;
+  text-align: center;
 }
 
 ul {
@@ -39,9 +43,40 @@ ul {
 li {
   border-bottom: 2px solid #dbdbdb;
   margin-bottom: 1.5rem;
-  padding: 0.5rem;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
 }
 
 span {
   margin-left: 1rem;
+}
+
+.check_box {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+}
+
+#input_form {
+  margin-bottom: 2rem;
+}
+
+.edit_list_input {
+  padding: 0.25rem 0;
+  font-size: 1rem;
+}
+
+.button_container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  position: absolute;
+  right: 1rem;
 }

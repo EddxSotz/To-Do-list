@@ -47,15 +47,18 @@ function editTaskDescription(index, newDescription) {
 
 // Function to render the To-Do List on the web page
 function renderList() {
-  const listContainer = document.getElementById('list-container');
+  const listContainer = document.getElementById('list-container');  
   // Clear the list container
   listContainer.innerHTML = '';
   // Iterate over the To-Do List array and create an HTML list item for each task
   todoList.forEach((task) => {
     const listItem = document.createElement('li');
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'button_container';
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
+    checkbox.className = 'check_box';
     checkbox.checked = task.completed;
     checkbox.addEventListener('change', () => {
       task.completed = checkbox.checked;
@@ -66,7 +69,8 @@ function renderList() {
     descriptionSpan.textContent = task.description;
     const inputElement = document.createElement('input');
     inputElement.type = 'text';
-
+    inputElement.className = 'edit_list_input';
+    
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', () => {
@@ -91,7 +95,7 @@ function renderList() {
     const saveButton = document.createElement('button');
     saveButton.textContent = 'Save'; 
     saveButton.style.display = 'none';
-    
+
     saveButton.addEventListener('click', () => {
     saveButton.style.display = 'none';
     editButton.style.display = '';
@@ -104,9 +108,10 @@ function renderList() {
 
     listItem.appendChild(checkbox);
     listItem.appendChild(descriptionSpan);
-    listItem.appendChild(editButton);
-    listItem.appendChild(saveButton);
-    listItem.appendChild(deleteButton);
+    buttonContainer.appendChild(editButton);
+    buttonContainer.appendChild(saveButton);
+    buttonContainer.appendChild(deleteButton);
+    listItem.appendChild(buttonContainer);
     listContainer.appendChild(listItem);
   });
 }
