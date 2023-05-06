@@ -1,10 +1,11 @@
 import './style.css';
+import clearCompleted from './tasks.js';
 
 const form = document.getElementById('input_form');
 const addItemInput = document.getElementById('AddToList');
-
+const clearCompletedButton = document.getElementById('clear_completed');
 // Define the To-Do List array
-const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
 // Function to save the To-Do List in local storage
 function saveList() {
@@ -23,6 +24,8 @@ function addTask(description) {
   todoList.push(newTask);
   // Save the updated To-Do List in local storage
   saveList();
+  // eslint-disable-next-line no-use-before-define
+  renderList();
 }
 
 // Function to delete a task from the To-Do List
@@ -35,6 +38,8 @@ function deleteTask(index) {
   });
   // Save the updated To-Do List in local storage
   saveList();
+  // eslint-disable-next-line no-use-before-define
+  renderList();
 }
 
 // Function to edit the description of a task in the To-Do List
@@ -43,6 +48,8 @@ function editTaskDescription(index, newDescription) {
   todoList[index].description = newDescription;
   // Save the updated To-Do List in local storage
   saveList();
+  // eslint-disable-next-line no-use-before-define
+  renderList();
 }
 
 // Function to render the To-Do List on the web page
@@ -120,5 +127,11 @@ renderList();
 
 form.addEventListener('submit', () => {
   addTask(addItemInput.value);
+  renderList();
+});
+
+clearCompletedButton.addEventListener('click', () => {
+  todoList = clearCompleted(todoList);
+  saveList();
   renderList();
 });
