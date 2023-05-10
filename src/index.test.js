@@ -1,9 +1,10 @@
 
 //import { deleteTask } from "./index.js";
 
-const addItem = require('./index.js addTask');
+import addTask from './index.js';
 
-describe('addItem', () => {
+
+describe('addtask', () => {
   test('adds an item to the list', () => {
     document.body.innerHTML =
     '<div>' +
