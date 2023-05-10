@@ -13,7 +13,7 @@ function saveList() {
 }
 
 // Function to add a new task to the To-Do List
-function addTask(description) {
+ function addTask(description) {
   // Create a new task object with default values
   const newTask = {
     description,
@@ -29,7 +29,7 @@ function addTask(description) {
 }
 
 // Function to delete a task from the To-Do List
-function deleteTask(index) {
+export function deleteTask(index) {
   // Remove the task with the given index from the array
   todoList.splice(index, 1);
   // Update the indexes of all remaining tasks
@@ -135,3 +135,5 @@ clearCompletedButton.addEventListener('click', () => {
   saveList();
   renderList();
 });
+
+module.exports = addTask;
