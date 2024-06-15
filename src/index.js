@@ -13,7 +13,7 @@ function saveList() {
 }
 
 // Function to add a new task to the To-Do List
- function addTask(description) {
+export default function addTask(description) {
   // Create a new task object with default values
   const newTask = {
     description,
@@ -44,7 +44,7 @@ function editTaskDescription(index, newDescription) {
   todoList[index].description = newDescription;
   // Save the updated To-Do List in local storage
   saveList();
-  }
+}
 
 // Function to render the To-Do List on the web page
 function renderList() {
@@ -119,15 +119,14 @@ function renderList() {
 // Call the renderList() function to display the To-Do List on page load
 renderList();
 
-//Add to list button event 
+// Add to list button event
 addButton.addEventListener('click', () => {
-  addTask(addItemInput.value);  
+  addTask(addItemInput.value);
 });
 
-//Clear all checked tasks button listener
+// Clear all checked tasks button listener
 clearCompletedButton.addEventListener('click', () => {
   todoList = clearCompleted(todoList);
   saveList();
   renderList();
 });
-
