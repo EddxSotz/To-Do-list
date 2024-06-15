@@ -1,7 +1,7 @@
 import './style.css';
 import clearCompleted from './tasks.js';
 
-const form = document.getElementById('input_form');
+const addButton = document.getElementById('addBtn');
 const addItemInput = document.getElementById('AddToList');
 const clearCompletedButton = document.getElementById('clear_completed');
 // Define the To-Do List array
@@ -13,7 +13,7 @@ function saveList() {
 }
 
 // Function to add a new task to the To-Do List
- export function addTask(description) {
+ function addTask(description) {
   // Create a new task object with default values
   const newTask = {
     description,
@@ -24,8 +24,6 @@ function saveList() {
   todoList.push(newTask);
   // Save the updated To-Do List in local storage
   saveList();
-  // eslint-disable-next-line no-use-before-define
-  renderList();
 }
 
 // Function to delete a task from the To-Do List
@@ -38,8 +36,6 @@ function deleteTask(index) {
   });
   // Save the updated To-Do List in local storage
   saveList();
-  // eslint-disable-next-line no-use-before-define
-  renderList();
 }
 
 // Function to edit the description of a task in the To-Do List
@@ -48,9 +44,7 @@ function editTaskDescription(index, newDescription) {
   todoList[index].description = newDescription;
   // Save the updated To-Do List in local storage
   saveList();
-  // eslint-disable-next-line no-use-before-define
-  renderList();
-}
+  }
 
 // Function to render the To-Do List on the web page
 function renderList() {
@@ -125,11 +119,12 @@ function renderList() {
 // Call the renderList() function to display the To-Do List on page load
 renderList();
 
-form.addEventListener('submit', () => {
-  addTask(addItemInput.value);
-  renderList();
+//Add to list button event 
+addButton.addEventListener('click', () => {
+  addTask(addItemInput.value);  
 });
 
+//Clear all checked tasks button listener
 clearCompletedButton.addEventListener('click', () => {
   todoList = clearCompleted(todoList);
   saveList();
